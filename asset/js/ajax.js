@@ -13,9 +13,10 @@ $('#inscription').submit(function(e) {
     type: "POST",
     url: form.attr('action'),
     data:form.serialize(),
-    dataType:"json",
+    //dataType:"json",
     success: function(response){
       console.log(response);
+      console.log('dede2');
       if(response.success === true) {
 
         $('#inscriptiondone').html('<h3 style="text-align: center;">Bravo, vous êtes bien inscrit</h3>');
@@ -64,6 +65,7 @@ $('#connexion').submit(function(e) {
           document.location.href="index.php";
         });
       }else {
+        console.log('dede3');
         if(response.error.pseudo != null) {
           $('#error_pseudo').append(response.error.pseudo);
         }
