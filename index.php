@@ -141,7 +141,7 @@ if(!empty($_GET['categorySubmit'])){
 </div>
 <?php
 foreach ($posters as $poster){
-  echo '<a href="./details.php?id='.$poster['id'].'&'.$poster['slug'].'"><img src="posters/'.$poster['id'].'.jpg"></a>';
+  echo '<a href="./details.php?slug='.$poster['slug'].'"><img src="posters/'.$poster['id'].'.jpg"></a>';
 }?>
 <a href="index.php"><button type="button" name="button">Plus de films</button></a>
  <?php include ('include/footer.php');?>

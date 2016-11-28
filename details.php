@@ -1,19 +1,16 @@
 <?php include 'include/pdo.php' ?>
 <?php include 'include/functions.php'; ?>
 
-<?php include 'include/header.php';
-
-
-
-
-
-if(!empty($_GET['slug'])){
+<?php if(!empty($_GET['slug'])){
 
   $slug = $_GET['slug'];
   $sql = "SELECT *  FROM movies_full WHERE slug = '$slug'";
   $query = $pdo->prepare($sql);
   $query->execute();
-  $posters = $query->fetchAll();
+  $posters = $query->fetchAll(); ?>
+
+<?php include 'include/header.php';
+
 
   foreach ($posters as $poster ) {
     echo '<div class="films"><img src="posters/'. $poster['id'] .'.jpg" alt="'. $poster['title'] .'"/></div>';
@@ -25,8 +22,6 @@ if(!empty($_GET['slug'])){
   }
 
 }
-
-
 
 
 
