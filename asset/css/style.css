@@ -1,0 +1,142 @@
+/*CSS Michele Formulaires d'inscription, connexion*/
+.messages {
+  margin-top: 1em;
+   padding: 15px;
+   border: 2px solid black;
+}
+.message {
+  margin-top: 1em;
+   padding: 15px;
+   border: 2px solid black;
+}
+#inscriptiondone{
+  text-align: center;
+}
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.modal-header {
+  border-bottom: 1px solid #48a4ac;
+  background: #61bdc5;
+  min-height: 16.4286px;
+  padding: 10px 15px;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  filter: alpha(opacity=20);
+}
+.modal-body {
+  position: relative;
+  /*padding-left: 150px;*/
+  padding-top: 15px;
+}
+.modal-footer {
+  padding: 19px 20px 20px;
+  margin-top: 0;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.parent {
+  display: flex;
+}
+.enfant {
+  margin: auto;
+}
+/*FIN du CSS Michele Formulaires d'inscription, connexion*/
+
+/*NAVBAR (Michele)*/
+.logo {
+  float: left;
+  text-align: center;
+  margin-left: 200px;
+  margin-right: 50px;
+  padding-top: 10px;
+}
+h1.kaushan {
+  font-family: 'Kaushan Script', cursive;
+}
+.navbar {
+  min-height: 100px,
+}
+.navbar-right {
+  float: right;
+}
+.navbar-default {
+  background-color: #43a0b7;
+	border-color: #4582a7;
+  height: 100px;
+}
+.navbar-default .navbar-brand {
+	color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+	color: #052090;
+}
+.navbar-default .navbar-text {
+	color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #052090;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	color: #052090;
+	background-color: #4582a7;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	color: #052090;
+	background-color: #4582a7;
+}
+.navbar-default .navbar-toggle {
+	border-color: #4582a7;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	background-color: #4582a7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+	background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+	border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+	color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+	color: #052090;
+}
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+		color: #ecf0f1;
+
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+		color: #052090;
+	}
+	.navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+		color: #ffffff;
+		background-color: #4582a7;
+	}
+}
+/*FIN NAVBAR*/

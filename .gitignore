@@ -1,0 +1,7 @@
+posters/
+include/pdo.php
+include/pdo1.php
+movies/
+vendor/
+composer.json
+composer.lock
