@@ -45,11 +45,11 @@ if(!empty($_GET['categorySubmit'])){
   }
 
   if(!empty($years)){
-    $year = explode('-', $years[0]);
+    $year = explode('-', $years);
     $and .= ' AND year >= ' .$year[0].' AND year <= ' .$year[1].' ';
   }
   if(!empty($popularity)){
-    $popu = explode('-', $popularity[0]);
+    $popu = explode('-', $popularity);
     $and .= ' AND popularity >= ' .$popu[0].' AND popularity <= ' .$popu[1].' ';
   }
 
@@ -61,7 +61,9 @@ if(!empty($_GET['categorySubmit'])){
   echo $sql;
   //die();
   $query = $pdo->prepare($sql);
-  $query->bindValue(':search','%'.$search.'%',PDO::PARAM_STR);
+    if(!empty($search)){
+      $query->bindValue(':search','%'.$search.'%',PDO::PARAM_STR);
+    }
   $query->execute();
   $posters = $query->fetchAll();
   print_r($posters);
@@ -110,30 +112,30 @@ if(!empty($_GET['categorySubmit'])){
 
 
     <div class="div_years filter_detail">
-     <select action="index.php" name="years[]">
+     <select action="index.php" name="years">
 
-       <option name="1" value="0-3000" checked>Toutes les années</option><br>
-       <option name="2" value="0-1930">  avant 1930</option><br>
-       <option name="3" value="1930-1940"> 1930-1940</option><br>
-       <option name="4" value="1940-1950"> 1940-1950</option><br>
-       <option name="5" value="1950-1960"> 1950-1960</option><br>
-       <option name="6" value="1960-1970"> 1960-1970</option><br>
-       <option name="7" value="1970-1980"> 1970-1980</option><br>
-       <option name="8" value="1980-1990"> 1980-1990</option><br>
-       <option name="9" value="1990-2000"> 1990-2000</option><br>
-       <option name="10" value="2000-2010"> 2000-2010</option><br>
-       <option name="11" value="2010-3000 "> après 2010</option><br>
+       <option value="">Toutes les années</option><br>
+       <option value="1900-1930"> avant 1930</option><br>
+       <option value="1930-1940"> 1930-1940</option><br>
+       <option value="1940-1950"> 1940-1950</option><br>
+       <option value="1950-1960"> 1950-1960</option><br>
+       <option value="1960-1970"> 1960-1970</option><br>
+       <option value="1970-1980"> 1970-1980</option><br>
+       <option value="1980-1990"> 1980-1990</option><br>
+       <option value="1990-2000"> 1990-2000</option><br>
+       <option value="2000-2010"> 2000-2010</option><br>
+       <option value="2010-3000 "> après 2010</option><br>
      </select>
    </div>
 
     <div class="div_popularity filter_detail">
-      <select action="index.php" name="popularity[]">
-        <option name="12" value="0-100" checked>Toutes popularités</option><br>
-        <option name="13" value="80-100 "> 80-100</option><br>
-        <option name="14" value="60-80"> 60-80</option><br>
-        <option name="15" value="40-60"> 40-60</option><br>
-        <option name="16" value="20-40"> 20-40</option><br>
-        <option name="17" value="0-20"> 0-20</option><br>
+      <select action="index.php" name="popularity">
+        <option value="">Toutes popularités</option><br>
+        <option value="80-100 "> 80-100</option><br>
+        <option value="60-80"> 60-80</option><br>
+        <option value="40-60"> 40-60</option><br>
+        <option value="20-40"> 20-40</option><br>
+        <option value="0-20"> 0-20</option><br>
       </select>
     </div>
     <input type="submit" name="categorySubmit" value="categorySubmit">
