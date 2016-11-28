@@ -44,7 +44,7 @@ $('#inscription').submit(function(e) {
 
 $('#connexion').submit(function(e) {
   e.preventDefault();
-
+  console.log("dede");
   var form = $('#connexion');
 
   $('#error_pseudo').empty();
@@ -58,7 +58,7 @@ $('#connexion').submit(function(e) {
     success: function(response){
       // console.log(response);
       if(response.success === true) {
-        console.log('dede');
+        console.log('dede2');
       //  redirection vers page d'accueil
         $('#connexion').fadeOut(1000, function(){
           document.location.href="index.php";
