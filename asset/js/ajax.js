@@ -76,3 +76,30 @@ $('#connexion').submit(function(e) {
     }
   });
 });
+
+// Franck note
+$('#movie_note').submit(function(e) {
+  e.preventDefault();
+  var form = $('#movie_note');
+  $('#error_note').empty();
+  $.ajax({
+    type: "POST",
+    url: "note_ajax.php",
+    data:form.serialize(),
+    success: function(response){
+      console.log(response);
+      if(response.success === true) {
+
+        $('#movie_note').fadeOut(1000);
+        setTimeout(function(){  $('#show_note').fadeIn(2000); }, 2000);
+      } else {
+        if(response.error.note != null) {
+          $('#error_note').append(response.error.note);
+        }
+      }
+    },
+    // error: function(){
+    //   console.error('Erreur');
+    // }
+  });
+});
