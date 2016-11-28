@@ -6,13 +6,14 @@ include('include/functions.php');
 <?php include('include/header.php'); ?>
 
 <!-- // FORMULAIRE de connexion -->
-<div class="container responsive">
-  <div class="row">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Connexion à votre compte</h4>
-      </div>
-      <form id="connexion" action="connexion_ajax.php" method="post">
+<form id="connexion" action="connexion_ajax.php" method="post">
+  <div class="container responsive">
+    <div class="row">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title">Connexion à votre compte</h4>
+        </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">

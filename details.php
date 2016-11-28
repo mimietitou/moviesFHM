@@ -1,28 +1,29 @@
 <?php include 'include/pdo.php' ?>
 <?php include 'include/functions.php'; ?>
+
 <?php include 'include/header.php';
 
 
 
 
 
-if(!empty($_GET['id']) && is_numeric($_GET['id'])){
+if(!empty($_GET['slug'])){
 
-  $id = $_GET['id'];
-  $sql = "SELECT *  FROM movies_full WHERE id = $id ";
+  $slug = $_GET['slug'];
+  $sql = "SELECT *  FROM movies_full WHERE slug = '$slug'";
   $query = $pdo->prepare($sql);
   $query->execute();
   $posters = $query->fetchAll();
 
   foreach ($posters as $poster ) {
-    echo '<img src="posters/'.$poster['id'].'.jpg">';
-    echo '<div class="films"><a href="./details.php?id='. $poster['id'] .'"><img src="/posters/'. $poster['id'] .'.jpg" alt="'. $poster['title'] .'"/></a></div>';
+    echo '<div class="films"><img src="posters/'. $poster['id'] .'.jpg" alt="'. $poster['title'] .'"/></div>';
     foreach ($poster as $details => $value ) {
      echo '<p class="description">'.$details.' : '.$value.'</p>';
 
     }
-
+  echo '<button type="button" name="button_a_voir" id="button_a_voir">A voir</button>';
   }
+
 }
 
 
