@@ -46,11 +46,11 @@ if(!empty($_GET['categorySubmit'])){
 
   if(!empty($years)){
     $year = explode('-', $years[0]);
-    $and .= ' AND year >= ' .$year[0].' AND year <= ' .$year[1]' ';
+    $and .= ' AND year >= ' .$year[0].' AND year <= ' .$year[1].' ';
   }
   if(!empty($popularity)){
     $popu = explode('-', $popularity[0]);
-    $and .= ' AND popularity >= ' .$popu[0].' AND popularity <= ' .$popu[1]' ';
+    $and .= ' AND popularity >= ' .$popu[0].' AND popularity <= ' .$popu[1].' ';
   }
 
 
@@ -119,7 +119,7 @@ if(!empty($_GET['categorySubmit'])){
        <option name="5" value="1950-1960"> 1950-1960</option><br>
        <option name="6" value="1960-1970"> 1960-1970</option><br>
        <option name="7" value="1970-1980"> 1970-1980</option><br>
-       <option name="8" value=" 1980-1990"> 1980-1990</option><br>
+       <option name="8" value="1980-1990"> 1980-1990</option><br>
        <option name="9" value="1990-2000"> 1990-2000</option><br>
        <option name="10" value="2000-2010"> 2000-2010</option><br>
        <option name="11" value="2010-3000 "> après 2010</option><br>
