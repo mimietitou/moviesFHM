@@ -7,7 +7,12 @@
   $sql = "SELECT *  FROM movies_full WHERE slug = '$slug'";
   $query = $pdo->prepare($sql);
   $query->execute();
-  $posters = $query->fetchAll(); ?>
+  $posters = $query->fetchAll();
+
+  if(!empty())
+
+
+  ?>
 
 <?php include 'include/header.php';
 
@@ -17,13 +22,18 @@
     foreach ($poster as $details => $value ) {
      echo '<p class="description">'.$details.' : '.$value.'</p>';
 
-    }
-  echo '<button type="button" name="button_a_voir" id="button_a_voir">A voir</button>';
+   } ?>
+  <form class="" action="index.html" method="post">
+
+  </form>
+  <input type="submit" name="film_a_voir" value="Film à voir absolument!" method="post">
+
+  <?php
   }
 
-}
+}?>
 
 
 
 
- include 'include/footer.php';?>
+ <?php include 'include/footer.php';?>

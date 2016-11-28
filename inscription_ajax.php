@@ -87,7 +87,7 @@ $success = false;
   //  et on génère un token pour récupérer le mot de passe
   $token = generateRandomString(50);
     // on enregistre les données du formulaire en BDD
-    $sql = "INSERT INTO users VALUES('', :pseudo, :email, :password, :token, NOW(), 'user', 'user')";
+    $sql = "INSERT INTO users VALUES('', :pseudo, :email, :password, :token, NOW(), 'user')";
     $query = $pdo->prepare($sql);
     // on sécurise sa base de données
     $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
