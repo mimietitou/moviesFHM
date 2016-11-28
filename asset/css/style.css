@@ -78,8 +78,13 @@ h1.kaushan {
 .navbar-right {
   float: right;
 }
-.navbar-default {
+.navbar-default.front {
   background-color: #43a0b7;
+	border-color: #4582a7;
+  height: 100px;
+}
+.navbar-default.back {
+  background-color: #000000;
 	border-color: #4582a7;
   height: 100px;
 }

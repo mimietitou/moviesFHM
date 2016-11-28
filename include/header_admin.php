@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-xs-12">
       </div>
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default back" role="navigation">
         <div class="container-max-width: 900px responsive">
           <div class="navbar-header">
             <button class="navbar-toggle" data-target="#LG-collapse" data-toggle="collapse" type="button">
