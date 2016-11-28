@@ -37,7 +37,6 @@ include('include/functions.php');
           <label>
   				  <input type="checkbox" name="remember" /> Se souvenir de moi
   			  </label>
-          <input type="hidden" name="isEmpty" value="">
           <button type="submit" name="submit" value="connexion" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Connexion</button>
         </div>
       </form>

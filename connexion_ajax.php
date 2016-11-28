@@ -41,10 +41,11 @@ if(!empty($user)){
       $_SESSION['user'] = array(
         'pseudo'  => $user['pseudo'],
         'id'      => $user['id'],
-        'role'    => $user['role'],
+        'status'    => $user['status'],
         // on vérifie l'ip de l'utilisateur
         'ip'      => $_SERVER['REMOTE_ADDR']
       );
+      // header('location: connexion.php');
     }
   }
 } else {
