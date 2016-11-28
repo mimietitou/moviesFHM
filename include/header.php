@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-xs-12">
       </div>
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="navbar navbar-default front" role="navigation">
         <div class="container-max-width: 900px responsive">
           <div class="navbar-header">
             <button class="navbar-toggle" data-target="#LG-collapse" data-toggle="collapse" type="button">
@@ -40,14 +40,14 @@
               <p style="text-align: right; margin-right: 50px;">
                 <!--Si l'utilisateur est logué  on modifie le header pour afficher message de bienvenue
                 et le lien vers la page deconnexion -->
-                <?php if(is_logged_user()){ ?>
-                <a target="blank" style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
-                <a target="blank" style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
-                <a target="blank" style= "color: #ffffff;" title="contact" href="#">Contact</a>
+                <?php if(is_logged_user()){?>
+                <a style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
+                <a style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
+                <a style= "color: #ffffff;" title="contact" href="#">Contact</a>
               <?php } else { ?>
-                <a target="blank" style= "color: #ffffff;" title="connexion" href="connexion.php">Connexion</a> |
-                <a target="blank" style= "color: #ffffff;" title="inscription" href="inscription.php">Inscription</a> |
-                <a target="blank" style= "color: #ffffff;" title="contact" href="">Contact</a>
+                <a style= "color: #ffffff;" title="connexion" href="connexion.php">Connexion</a> |
+                <a style= "color: #ffffff;" title="inscription" href="inscription.php">Inscription</a> |
+                <a style= "color: #ffffff;" title="contact" href="">Contact</a>
               <?php } ?>
               </p>
             </div>

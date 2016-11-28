@@ -45,6 +45,7 @@ if(!empty($user)){
         // on vérifie l'ip de l'utilisateur
         'ip'      => $_SERVER['REMOTE_ADDR']
       );
+      // header('location: connexion.php');
     }
   }
 } else {

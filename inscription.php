@@ -48,7 +48,6 @@ include('include/functions.php');
           </div>
         </div>
         <div class="modal-footer">
-          <input type="hidden" name="isEmpty" value="">
           <button type="submit" name="submit" value="Je m'inscris" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Creer mon compte</button>
         </div>
       </form>
