@@ -152,6 +152,7 @@ table {
 td, th {
   border: 1px solid black;
 }
+<<<<<<< HEAD
 /*==============================DEBUT HERMELEN===========================*/
 /*div container films description*/
 body .container_films_details{
@@ -228,3 +229,5 @@ body .container_films_details{
     height: 0;
 }
 /*==============================FIN HERMELEN=============================*/
+=======
+>>>>>>> e9c5949e722e3131e86371199a29383503e71977
