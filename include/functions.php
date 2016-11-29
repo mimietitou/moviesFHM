@@ -35,12 +35,20 @@ function generateRandomString($length = 10) {
 // Fonction qui permet de vérifier si un utilisateur est logué (Michele)
 function is_logged_user() {
   if (!empty($_SESSION['user']['pseudo'])&&!empty($_SESSION['user']['id'])&& !empty($_SESSION['user']['status'])&&!empty($_SESSION['user']['ip'])) {
-    if($_SESSION['user']['ip'] == $_SERVER['REMOTE_ADDR'] ) {
-      
+    if($_SESSION['user']['ip'] === $_SERVER['REMOTE_ADDR'] ) {
       return true;
     }
   }
   return false;
+}
+// Fonction qui permet de vérifier si un admin est logué
+function is_logged_admin() {
+  if(!empty($_SESSION['user']['pseudo']) && !empty($_SESSION['user']['id']) && !empty($_SESSION['user']['status']) && !empty($_SESSION['user']['ip'])) {
+    if($_SESSION['user']['ip'] === $_SERVER['REMOTE_ADDR'] && $_SESSION['user']['status'] === 'admin') {
+      return true;
+    }
+  }
+  return false ;
 }
 // Fonction pour la redirection (Michèle)
 function redirect($url)

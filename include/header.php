@@ -33,25 +33,29 @@ if(!isset($_SESSION)) {
           </div>
           <div class="collapse navbar-collapse" id="LG-collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li><a target="_blank" style="margin-top: 25px;" title="consultation" href="consultation.php">Consultation</a></li>
+              <li></li>
             </ul>
             <img class="logo responsive" style="text-align: center;" src="logo.jpg" alt="">
             <div class="responsive" style="text-align: left; " title="films" >
               <p style="text-align: center;">
-                <h1 class="kaushan">FILMS</h1>
+                <h1 class="kaushan front">FILMS</h1>
               </p>
               <p style="text-align: right; margin-right: 50px;">
                 <!--Si l'utilisateur est logué  on modifie le header pour afficher message de bienvenue
                 et le lien vers la page deconnexion -->
-                <?php if(is_logged_user()){?>
-                <a style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
-                <a style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
-                <a style= "color: #ffffff;" title="contact" href="#">Contact</a>
-              <?php } else { ?>
-                <a style= "color: #ffffff;" title="connexion" href="connexion.php">Connexion</a> |
-                <a style= "color: #ffffff;" title="inscription" href="inscription.php">Inscription</a> |
-                <a style= "color: #ffffff;" title="contact" href="">Contact</a>
-              <?php } ?>
+                <?php if(is_logged_admin()){?>
+                        <a style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
+                        <a style= "color: #ffffff;" title="deconnexion" href="dashboard.php">Administration</a> |
+                        <a style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
+                <?php } else if(is_logged_user()){?>
+                        <a style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
+                        <a style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
+                        <a style= "color: #ffffff;" title="contact" href="#">Contact</a>
+                <?php } else { ?>
+                        <a style= "color: #ffffff;" title="connexion" href="connexion.php">Connexion</a> |
+                        <a style= "color: #ffffff;" title="inscription" href="inscription.php">Inscription</a> |
+                        <a style= "color: #ffffff;" title="contact" href="">Contact</a>
+                <?php };?>
               </p>
             </div>
           </div>
