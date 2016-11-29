@@ -1,4 +1,4 @@
-<?php include 'include/pdo.php' ?>
+ <?php include 'include/pdo.php' ?>
 <?php include 'include/functions.php'; ?>
 <?php
 // Sous la soumission des différents filtres

@@ -152,14 +152,14 @@ table {
 td, th {
   border: 1px solid black;
 }
-<<<<<<< HEAD
 /*==============================DEBUT HERMELEN===========================*/
 /*div container films description*/
-body .container_films_details{
+body .container .container_films_details{
   background-color: rgba(69,130,167,0.3);
   height: 354px;
   padding: 0px;
   margin-bottom: 10px;
+  color: red;
 }
 .container_films_details :nth-child(2){
   font-size: 0.7em;
@@ -203,7 +203,7 @@ body .container_films_details{
 #show_note{
   float: right;
 }
-.submit_a_voir{
+.submit_a_voir , .submit_deja_vu{
   float: left;
   margin-right: 1em;
 }
@@ -229,5 +229,3 @@ body .container_films_details{
     height: 0;
 }
 /*==============================FIN HERMELEN=============================*/
-=======
->>>>>>> e9c5949e722e3131e86371199a29383503e71977
