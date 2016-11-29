@@ -40,7 +40,7 @@
               <p style="text-align: right; margin-right: 50px;">
                 <!--Si l'utilisateur est logué  on modifie le header pour afficher message de bienvenue
                 et le lien vers la page deconnexion -->
-                <?php if(is_logged_user()){ ?>
+                <?php if(is_logged_user() && $_SESION['user']['status']) === $_SESSION['user']['admin']{ ?>
                 <a target="blank" style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
                 <a target="blank" style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
                 <a target="blank" style= "color: #ffffff;" title="administration" href="dashboard.php">Administration</a>

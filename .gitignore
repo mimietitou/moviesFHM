@@ -1,4 +1,6 @@
 posters/
 include/pdo.php
-include/pdo2.php
+include/pdoEpaignes.php
+include/pdoHome.php
+include/pdoSim.php
 movies/
