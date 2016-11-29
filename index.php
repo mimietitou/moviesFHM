@@ -4,6 +4,7 @@
 // Sous la soumission des différents filtres
 if(!empty($_GET['categorySubmit'])){
   // on récupère les données choisis par l'utilisateur
+  // si le champs n'est pas rempli, on lui donne une valeur vide pour éviter les erreurs
   if(!empty($_GET['cat'])){
     $categories = $_GET['cat'];
   } else {
@@ -26,13 +27,15 @@ if(!empty($_GET['categorySubmit'])){
   } else {
     $search = "";
   }
-  // on crée une varible vide qu'on va nourrir
+  // on crée une varible vide qu'on va nourrir en concaténant
   $and = "";
   if(!empty($search)){
     $nbMots = substr($search, 0);
     $decoupe = explode(' ', $nbMots);
+    // on va chercher le premier mot saisit par l'utilisateur  dans les colonne title, cast ou directors
     $and = ' AND title LIKE "%'.$decoupe[0].'%" OR cast LIKE "%'.$decoupe[0].'%" OR directors LIKE "%'.$decoupe[0].'%"';
     if(count($decoupe >1)){
+      // si l'utilisateur a entré plusieurs mots on va aussi les comparer  $and
       for ($i=1; $i < count($decoupe) ; $i++) {
         $and .= 'AND title LIKE"%'.$decoupe[$i].'%" OR cast LIKE "%'.$decoupe[$i].'%" OR directors LIKE "%'.$decoupe[$i].'%"';
       }
@@ -55,11 +58,8 @@ if(!empty($_GET['categorySubmit'])){
 
 
 
-
+  //  la variable $and vaudra les choix de l'lutilisateur
   $sql = "SELECT * FROM movies_full WHERE 1 = 1 $and ORDER BY RAND() LIMIT 5";
-
-  echo $sql;
-  //die();
   $query = $pdo->prepare($sql);
     if(!empty($search)){
       $query->bindValue(':search','%'.$search.'%',PDO::PARAM_STR);
@@ -71,6 +71,7 @@ if(!empty($_GET['categorySubmit'])){
 
 
 } else {
+  // par défaut on affiche des films au hasard
   $sql = "SELECT *  FROM movies_full ORDER BY RAND() LIMIT 20";
   $query = $pdo->prepare($sql);
   $query->execute();

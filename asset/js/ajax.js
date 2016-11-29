@@ -59,13 +59,11 @@ $('#connexion').submit(function(e) {
     success: function(response){
       // console.log(response);
       if(response.success === true) {
-        console.log('dede2');
       //  redirection vers page d'accueil
         $('#connexion').fadeOut(1000, function(){
           document.location.href="index.php";
         });
       }else {
-        console.log('dede3');
         if(response.error.pseudo != null) {
           $('#error_pseudo').append(response.error.pseudo);
         }
@@ -87,9 +85,10 @@ $('#movie_note').submit(function(e) {
     url: "note_ajax.php",
     data:form.serialize(),
     success: function(response){
-      console.log(response);
-      if(response.success === true) {
 
+
+      if(response.success === true) {
+        console.log(response);
         $('#movie_note').fadeOut(1000);
         setTimeout(function(){  $('#show_note').fadeIn(2000); }, 2000);
       } else {
@@ -98,8 +97,8 @@ $('#movie_note').submit(function(e) {
         }
       }
     },
-    // error: function(){
-    //   console.error('Erreur');
-    // }
+    error: function(){
+      console.error('Erreur');
+    }
   });
 });
