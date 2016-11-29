@@ -90,6 +90,8 @@ $('#movie_note').submit(function(e) {
       if(response.success === true) {
         console.log(response);
         $('#movie_note').fadeOut(1000);
+        $('#aVoir').fadeOut(1000);
+
         setTimeout(function(){  $('#show_note').fadeIn(2000); }, 2000);
       } else {
         if(response.error.note != null) {
