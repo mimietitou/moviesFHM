@@ -189,3 +189,88 @@ li.back {
   padding-left: 5px;
 }
 /* FIN TABLEAU Michèle*/
+=======
+/*TABLE ADMIN*/
+table {
+  border-collapse: collapse;
+}
+td, th {
+  border: 1px solid black;
+}
+/*==============================DEBUT HERMELEN===========================*/
+/*div container films description*/
+body .container .container_films_details{
+  background-color: rgba(69,130,167,0.3);
+  height: 354px;
+  padding: 0px;
+  margin-bottom: 10px;
+  color: red;
+}
+.container_films_details :nth-child(2){
+  font-size: 0.7em;
+  float: left;
+  padding-right: 0.5em;}/*id*/
+
+.container_films_details :nth-child(3)
+{font-size: 0.7em;}/*slug*/
+
+.container_films_details :nth-child(4){/*title*/
+  font-size: 2em;}
+.container_films_details :nth-child(4) span{/*title*/
+  display: none;}
+.container_films_details :nth-child(5){/*year*/
+  float: left;
+  padding-right: 1em;}
+.container_films_details :nth-child(7){/*plot*/
+  font-size: 1.3em;
+   margin: 1em;}
+.container_films_details :nth-child(8){font-size: 1em;}/*directors*/
+.container_films_details :nth-child(9){font-size: 1em;}/*cast*/
+.container_films_details :nth-child(10){font-size: 0.7em;}/*writers*/
+.container_films_details :nth-child(11){font-size: 0.7em;}/*runtime*/
+.container_films_details :nth-child(12){font-size: 0.7em;}/*mpaa*/
+.container_films_details :nth-child(13){font-size: 1em;}/*rate*/
+.container_films_details :nth-child(14){font-size: 0.7em;}/*pop*/
+.container_films_details :nth-child(15){font-size: 0.6em;}/*modif*/
+.container_films_details :nth-child(16){font-size: 0.6em;}/*creat*/
+.container_films_details :nth-child(17){font-size: 0.6em;}/*flag*/
+/*title*/
+.film_img{
+  display: flex;
+  float:left;
+  padding:1em;
+}
+.description{
+  margin: 0;
+}
+
+/*rate and flags*/
+#show_note{
+  float: right;
+}
+.submit_a_voir , .submit_deja_vu{
+  float: left;
+  margin-right: 1em;
+}
+/*ma_selection*/
+.film_thumb{
+  width: 70px;
+  float: left;
+  padding-right: 3px;
+}
+.container_films_thumb{
+  float:left;
+  width: 24%;
+  background-color: rgba(69,130,167,0.3);
+  padding: 10px;
+  margin: 5px;
+}
+
+/*** Clearfix ***/
+.clearfix:after {
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+/*==============================FIN HERMELEN=============================*/

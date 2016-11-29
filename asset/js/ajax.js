@@ -13,9 +13,10 @@ $('#inscription').submit(function(e) {
     type: "POST",
     url: form.attr('action'),
     data:form.serialize(),
-    dataType:"json",
+    //dataType:"json",
     success: function(response){
       console.log(response);
+      console.log('dede2');
       if(response.success === true) {
 
         $('#inscriptiondone').html('<h3 style="text-align: center;">Bravo, vous êtes bien inscrit</h3>');
@@ -58,7 +59,6 @@ $('#connexion').submit(function(e) {
     success: function(response){
       // console.log(response);
       if(response.success === true) {
-        console.log('dede2');
       //  redirection vers page d'accueil
         $('#connexion').fadeOut(1000, function(){
           document.location.href="index.php";
@@ -71,6 +71,34 @@ $('#connexion').submit(function(e) {
           $('#error_password').append(response.error.password);
         }
       }
+    }
+  });
+});
+
+// Franck note
+$('#movie_note').submit(function(e) {
+  e.preventDefault();
+  var form = $('#movie_note');
+  $('#error_note').empty();
+  $.ajax({
+    type: "POST",
+    url: "note_ajax.php",
+    data:form.serialize(),
+    success: function(response){
+
+
+      if(response.success === true) {
+        console.log(response);
+        $('#movie_note').fadeOut(1000);
+        setTimeout(function(){  $('#show_note').fadeIn(2000); }, 2000);
+      } else {
+        if(response.error.note != null) {
+          $('#error_note').append(response.error.note);
+        }
+      }
+    },
+    error: function(){
+      console.error('Erreur');
     }
   });
 });
