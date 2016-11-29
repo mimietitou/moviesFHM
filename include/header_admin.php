@@ -1,3 +1,4 @@
+<!-- <?php session_start(); ?> -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -29,25 +30,23 @@
           </div>
           <div class="collapse navbar-collapse" id="LG-collapse">
             <ul class="nav navbar-nav navbar-left">
-              <li><a target="_blank" style="margin-top: 25px;" title="consultation" href="consultation.php">Consultation</a></li>
+              <li></li>
               <li><a target="_blank" style="margin-top: 25px;" title="" href=""></a></li>
             </ul>
             <img class="logo responsive" style="text-align: center;" src="logo.jpg" alt="">
             <div class="responsive" style="text-align: left; " title="films" >
               <p style="text-align: center;">
-                <h1 class="kaushan">FILMS</h1>
+                <h1 class="kaushan back">FILMS</h1>
               </p>
               <p style="text-align: right; margin-right: 50px;">
                 <!--Si l'utilisateur est logué  on modifie le header pour afficher message de bienvenue
                 et le lien vers la page deconnexion -->
-                <?php if(is_logged_user() && $_SESION['user']['status']) === $_SESSION['user']['admin']{ ?>
+                <?php if(is_logged_user()){?>
                 <a target="blank" style= "color: #ffffff;">Bienvenue <?php echo $_SESSION['user']['pseudo']; ?></a> |
                 <a target="blank" style= "color: #ffffff;" title="deconnexion" href="deconnexion.php">Deconnexion</a> |
-                <a target="blank" style= "color: #ffffff;" title="administration" href="dashboard.php">Administration</a>
               <?php } else { ?>
                 <a target="blank" style= "color: #ffffff;" title="connexion" href="connexion.php">Connexion</a> |
                 <a target="blank" style= "color: #ffffff;" title="inscription" href="inscription.php">Inscription</a> |
-                <a target="blank" style= "color: #ffffff;" title="administration" href="dashboard.php">Administration</a>
               <?php } ?>
               </p>
             </div>

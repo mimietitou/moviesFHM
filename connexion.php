@@ -1,4 +1,6 @@
+
 <?php
+session_start();
 include('include/pdo.php');
 include('include/functions.php');
 ?>
@@ -9,7 +11,6 @@ include('include/functions.php');
   <div class="container responsive">
     <div class="row">
       <div class="modal-content">
-
         <div class="modal-header">
           <h4 class="modal-title">Connexion à votre compte</h4>
         </div>
@@ -38,9 +39,9 @@ include('include/functions.php');
   			  </label>
           <button type="submit" name="submit" value="connexion" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Connexion</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</form>
 
 <?php include('include/footer.php');?>

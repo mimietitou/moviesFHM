@@ -57,6 +57,7 @@ if(!empty($user)){
  $response = array(
    'error'  => $error,
    'success'  => $success
+
  );
 
   showJson($response);

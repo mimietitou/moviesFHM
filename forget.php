@@ -21,7 +21,6 @@ if(!empty($_POST['submit'])){
     $query->execute();
     $user = $query->fetch();
 
-    debug($user);
 
     // s'il y a un utilisateur associé à l'email fourni
      if(!empty($user)){
@@ -29,7 +28,7 @@ if(!empty($_POST['submit'])){
 
       $emailurl = urlencode($email);
       $html = '';
-      $html .= '<a href="http://localhost/MDP/releasepassword.php?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
+      $html .= '<a href="http://localhost/moviesFHM-master/releasepassword.php?email=' . $emailurl .'&token=' .  $user['token'] . '">Cliquez ici</a>';
 
     //envoi du mail
       $mail = new PHPMailer;
@@ -40,43 +39,45 @@ if(!empty($_POST['submit'])){
       $mail->Subject = 'Votre nouveau mot de passe';
       $mail->Body    = $html;
 
+
+
       if(!$mail->send()) {
           echo 'Le message n\'a pas été envoyé.';
           echo 'Erreur Mail: ' . $mail->ErrorInfo;
       } else {
           echo 'Le message a bien été envoyé';
+          header('location: releasepassword.php');
       }
     } else {
     echo 'Veuillez renseigner un email';
     }
   }
 }
-?>
-<!-- // FORMULAIRE de soumission d'email pour mot de passe oublié -->
-<div class="container responsive">
-  <div class="row">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Mot de passe oublié</h4>
-      </div>
-      <form id="" action="" method="post">
+include('include/header.php');?>
+
+<!-- // FORMULAIRE soumission d'email pour mot de passe oublié -->
+<form  action="" method="post">
+  <div class="container responsive">
+    <div class="row">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Mot de passe oublié</h4>
+        </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="email">Email*</label><br><br>
-                <input class="parent" type="email" name="email" value="<?php if(!empty($_POST['email'])) {echo $_POST['email'];} ?>"><br><br>
+                <label for="email">Votre Email*</label><br><br>
+                <input class="parent" type="email" name="email" value="<?php if(!empty($_POST['email'])) {echo $_POST['email'];} ?>"><br>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <input type="hidden" name="isEmpty" value="">
-          <button type="submit" name="submit" value="Soumettre" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Soumettre</button>
+          <button type="submit" name="submit" value="soumettre" class="btn btn-success btn-icon"><i class="fa fa-check"></i>Soumettre</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
-
+</form>
 <?php include('include/footer.php') ?>

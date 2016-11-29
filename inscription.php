@@ -7,14 +7,13 @@ include('include/functions.php');
 <?php include('include/header.php'); ?>
   <!-- FORMULAIRE d'inscription -->
 <div id="inscriptiondone"></div>
-<div class="container responsive">
-  <div class="row">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Creer un nouveau compte</h4>
-      </div>
-
-      <form id="inscription" action="inscription_ajax.php" method="post">
+<form id="inscription" action="inscription_ajax.php" method="post">
+  <div class="container responsive">
+    <div class="row">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Creer un nouveau compte</h4>
+        </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">
@@ -50,9 +49,9 @@ include('include/functions.php');
         <div class="modal-footer">
           <button type="submit" name="submit" value="Je m'inscris" class="btn btn-success btn-icon"><i class="fa fa-check"></i> Creer mon compte</button>
         </div>
-      </form>
+      </div>
     </div>
   </div>
-</div>
+</form>
 
 <?php include('include/footer.php');?>
