@@ -30,7 +30,6 @@
 
 
 
-$current_movie = $posters['id'];
       if(is_logged_user()){
         $id_movie = $posters['id'];
         $id_user = $_SESSION['user']['id'];
@@ -42,19 +41,7 @@ $current_movie = $posters['id'];
         $movie_note = $user_movie_info['note'];
         ?>
         <div class="container">
-          <?php if(!empty($movie_note)){?>
-
-            <div style="font-size:3rem;"><b><?=$movie_note?></b></div>
-          <?php }else{?>
-
-          <form class="" id="movie_note" action="" method="post">
-          <label for="">Notez ce film/100</label>
-          <input type="number" name="note" value="">
-          <input type="hidden" name="movie" value="<?= $id_movie; ?>" />
-          <span id="error_note"></span>
-          <input type="submit"  name="submit" value="Noter">
-          </form>
-        <?php }
+          <?php
 
 
 
@@ -75,18 +62,18 @@ $current_movie = $posters['id'];
           if(!empty($_POST['submit_deja_vu'])){
             $sql = "UPDATE movies_user_note
             SET status = 1
-            WHERE id_movie = :current_movie && id_user = :id_user";
+            WHERE id_movie = :id_movie AND id_user = :id_user";
             $query = $pdo->prepare($sql);
-            $query->bindvalue(':current_movie', $current_movie,PDO::PARAM_INT);
+            $query->bindvalue(':id_movie', $id_movie,PDO::PARAM_INT);
             $query->bindvalue(':id_user',$id_user,PDO::PARAM_INT);
             $query->execute();
           }
 // recherche des films déja présent dans film_a_voir pour adapter bouton A VOIR ou DEJA VU
           $sql = "SELECT *
           FROM movies_user_note
-          WHERE id_user = :id_user && id_movie = :current_movie  && status = 2";
+          WHERE id_user = :id_user AND id_movie = :id_movie  && status = 2";
           $query = $pdo->prepare($sql);
-          $query->bindvalue(':current_movie', $current_movie,PDO::PARAM_STR);
+          $query->bindvalue(':id_movie', $id_movie,PDO::PARAM_STR);
           $query->bindvalue(':id_user',$id_user,PDO::PARAM_INT);
           $query->execute();
           $in_selected = $query->fetchAll();
@@ -95,12 +82,31 @@ $current_movie = $posters['id'];
             <form action="" method="post">
             <input class="submit_deja_vu" type="submit" name="submit_deja_vu" value="Déjà vu">
             </form>
-          <?php }else{?>
-<!-- =============================HER AJOUT 20191129======================= -->
-          <form action="" method="post">
+          <?php }else{
+// =============================HER AJOUT 20191129======================= -->
+        if(!empty($movie_note)){?>
+
+         <div style="font-size:3rem;">
+          <?php if($movie_note >= 0 && $movie_note < 20 ){
+              echo '<i class="fa fa-star-o" aria-hidden="true"><b><?=$movie_note?></b></i>';
+          } elseif($movie_note >= 20 && $movie_note < 40 ){
+              echo '<i class="fa fa-star-o" aria-hidden="true"><b><?=$movie_note?></b></i><i class="fa fa-star-o" aria-hidden="true"></i>';
+          }  ?>
+         </div>
+        <?php }else{?>
+
+        <form class="" id="movie_note" action="" method="post">
+        <label for="">Notez ce film/100</label>
+        <input type="number" name="note" value="">
+        <input type="hidden" name="movie" value="<?= $id_movie; ?>" />
+        <span id="error_note"></span>
+        <input type="submit"  name="submit" value="Noter">
+        </form>
+          <form action="" id="aVoir" method="post">
           <input class="submit_a_voir" type="submit" name="submit_a_voir" value="Film à voir absolument!">
           </form>
-          <?php } ?>
+          <?php }
+         } ?>
           <a href="film_a_voir.php"><button type="button" name="ma_selection" class="ma_selection">Ma selection</button></a>
         </div>
         <?php

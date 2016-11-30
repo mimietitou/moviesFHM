@@ -37,6 +37,7 @@ if (!empty($_POST['note']) && !empty($_POST['movie'])){
       }elseif (count($error) === 0) {
         // si il n'y a pas d'erreur on l'insère en BDD
         $success = true;
+
         $sql = "INSERT INTO movies_user_note (id_movie, id_user, note, created_at) VALUES(:id_movie, :id_user, :note, NOW())";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id_movie', $id_movie, PDO::PARAM_INT);
@@ -47,8 +48,6 @@ if (!empty($_POST['note']) && !empty($_POST['movie'])){
     }
   }
 }
-
-
          //////////////////////////////////////////////////////////////////////////////////
          //création d'un tableau contenant la valuer de $success et les erreurs des champs
          /////////////////////////////////////////////////////////////////////////////////
