@@ -15,7 +15,7 @@ movies_full.slug AS full_slug
 FROM movies_user_note
 LEFT JOIN movies_full
 ON movies_user_note.id_movie = movies_full.id
-WHERE status = 1 && movies_user_note.id_user = :id_user";
+WHERE status = 1 AND movies_user_note.id_user = :id_user";
 $query = $pdo->prepare($sql);
 $query->bindvalue(':id_user',$id_user,PDO::PARAM_INT);
 $query->execute();
