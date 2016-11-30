@@ -62,3 +62,20 @@ function paginationFilms($page,$films_page,$nb_films) {
     }
     echo '</div>';
 }
+// Fonction pagination
+function paginationUsers($page,$users_page,$nb_users) {
+		echo '<div class="pagination">';
+		if ($page > 1){
+        echo '<a href="utilisateurs.php?page=' . ($page - 1) . '" class="btn btn-primary">Précédent</a>';
+    }
+ 	//n'affiche le lien vers la page suivante que s'il y en a une
+    if ($page*$users_page < $nb_users) {
+        echo '<a href="utilisateurs.php?page=' . ($page + 1) . '" class="btn btn-primary">Suivant</a>';
+    }
+    echo '</div>';
+}
+// Fonction sécurité GET
+function secu_get($get_name)
+{
+  return trim(strip_tags($_GET[$get_name]));
+}

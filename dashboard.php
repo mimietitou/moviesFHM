@@ -4,11 +4,6 @@ include('include/pdo.php');
 include('include/functions.php');
 ?>
 <?php
-//requête pour compter le nombre d'utilisateurs dans la table
-$sql = "SELECT count('id') FROM users";
-$query = $pdo->prepare($sql);
-$query->execute();
-$nb_users = $query->fetchColumn();
 
 //nombre de films par page
 $films_page = 100;
@@ -49,18 +44,7 @@ $films = $query->fetchAll();
 	        paginationFilms($page,$films_page,$nb_films);
 	    ?>
 
-<!-- Statistiques -->
-<table class="statistique">
-  <tr>
-    <th class="titre">Films</th>
-    <th class="titre">Utilisateurs</th>
-  </tr>
-  <tr>
-    <td><?php echo $nb_films; ?></td>
-    <td><?php echo $nb_users; ?></td>
-  </tr>
-</table>
-<br><br>
+
 <!-- Consultation/Ajout/Modification/Supression de films -->
 <table class="consultation">
   <thead>
@@ -72,7 +56,7 @@ $films = $query->fetchAll();
       <th class="titre">actions</th>
     </tr>
   </thead>
-  <?php foreach($films as $film) {?>
+  <?php foreach($films as $film) { ?>
   <tbody>
     <tr>
       <td><?php echo $film['id']; ?></td>
@@ -80,13 +64,13 @@ $films = $query->fetchAll();
       <td><?php echo $film['year']; ?></td>
       <td><?php echo $film['rating']; ?></td>
       <td>
-        <a class="back" href="./details.php?slug=<?php echo $film['slug']?>"><i class="fa fa-eye fa-lg" aria-hidden="true"></i></a>
-        <a class="back" href="./modification.php?slug=<?php echo $film['slug']?>"><i class="fa fa-pencil-square-o fa-lg" aria-hidden="true"></i></a>
-        <a class="back" href="#"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+        <a class="back" href="./details.php?slug=<?php echo $film['slug']?>"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+        <a class="back" href="./modification_users.php?id=<?php echo $film['id']?>"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+        <a class="back" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');" class="suppression" href="./suppression_films.php?id=<?php echo $film['id']?>"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
       </td>
     </tr>
   </tbody>
-  <?php }; ?>
+  <?php } ?>
 </table>
 
 <!-- Consultation/Modification/Supression d'utilisateurs -->
