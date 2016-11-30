@@ -50,23 +50,15 @@ function is_logged_admin() {
   }
   return false ;
 }
-// Fonction pour la redirection (Michèle)
-function redirect($url)
-{
-  header('Location: '.$url);
-  exit();
-}
-// Fonction pour la pagination
-function paginationIdea($page,$num,$count) {
+// Fonction pagination
+function paginationFilms($page,$films_page,$nb_films) {
 		echo '<div class="pagination">';
 		if ($page > 1){
-        echo '<a href="index.php?page=' . ($page - 1) . '" class="btn btn-primary">Précédent</a>';
+        echo '<a href="dashboard.php?page=' . ($page - 1) . '" class="btn btn-primary">Précédent</a>';
     }
  	//n'affiche le lien vers la page suivante que s'il y en a une
- 	//basée sur le count() de MYSQL
-    if ($page*$num < $count) {
-        echo '<a href="index.php?page=' . ($page + 1) . '" class="btn btn-primary">Suivant</a>';
+    if ($page*$films_page < $nb_films) {
+        echo '<a href="dashboard.php?page=' . ($page + 1) . '" class="btn btn-primary">Suivant</a>';
     }
-
     echo '</div>';
 }
