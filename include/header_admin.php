@@ -35,7 +35,9 @@ if(!isset($_SESSION)) {
           <div class="collapse navbar-collapse" id="LG-collapse">
             <ul class="nav navbar-nav navbar-left">
               <li></li>
-              <li><a target="_blank" style="margin-top: 25px;" title="" href=""></a></li>
+              <li><a style="margin-top: 25px;" title="statistiques" href="statistiques.php">Statistiques</a></li>
+              <li><a style="margin-top: 25px;" title="statistiques" href="utilisateurs.php">Utilisateurs</a></li>
+              <li><a style="margin-top: 25px;" title="statistiques" href="dashboard.php">Films</a></li>
             </ul>
             <img class="logo responsive" style="text-align: center;" src="logo.jpg" alt="">
             <div class="responsive" style="text-align: left; " title="films" >
