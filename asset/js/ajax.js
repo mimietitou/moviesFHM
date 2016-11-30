@@ -88,15 +88,78 @@ $('#movie_note').submit(function(e) {
 
 
       if(response.success === true) {
+          window.location.replace("details.php?slug=" +response.slug);
+
         console.log(response);
         $('#movie_note').fadeOut(1000);
-        $('#aVoir').fadeOut(1000);
 
-        setTimeout(function(){  $('#show_note').fadeIn(2000); }, 2000);
+
+        $('#user_movie_note').append();
+
       } else {
         if(response.error.note != null) {
           $('#error_note').append(response.error.note);
         }
+      }
+    },
+    error: function(){
+      console.error('Erreur');
+    }
+  });
+});
+// Franck films à voir
+$('#aVoir').submit(function(e) {
+  e.preventDefault();
+  var form = $('#aVoir');
+  $.ajax({
+    type: "POST",
+    url: "a_voir_ajax.php",
+    data:form.serialize(),
+    success: function(response){
+      //console.log(response);
+
+      if(response.success === true) {
+        // on rafraichi la page automatiquement pour afficher le nouveau formulaire
+        window.location.replace("details.php?slug=" +response.slug);
+        // //console.log(response);
+        // $('#aVoir').fadeOut(1000);
+        // $('#action_button').append('<form id="vu" class="" action="" method="post">'
+        //   +'<input class="submit_deja_vu" type="submit" name="submit_deja_vu" value="Déjà vu">'
+        //   +'<input type="hidden" name="deja_vu" value="<?= $id_movie; ?>" />'
+        // +'</form>');
+      }
+
+    },
+    error: function(){
+      console.error('Erreur');
+    }
+  });
+});
+
+// Franck films vus
+$('#vu').submit(function(e) {
+  e.preventDefault();
+  var form = $('#vu');
+  $.ajax({
+    type: "POST",
+    url: "deja_vu_ajax.php",
+    data:form.serialize(),
+    success: function(response){
+      console.log(response);
+
+      if(response.success === true) {
+        // on rafraichi la page automatiquement pour afficher le nouveau formulaire
+          window.location.replace("details.php?slug=" +response.slug);
+        console.log(response);
+        // $('#vu').fadeOut(1000);
+        // $('#action_button').append('<form class="" id="movie_note" action="" method="post">'
+        //   +'<label for="">Notez ce film/100</label>'
+        //   +'<input type="number" name="note" value="">'
+        //   +'<input type="hidden" name="movie" value="<?= $id_movie; ?>" />'
+        //   +'<span id="error_note"></span>'
+        //   +'<input type="submit"  name="submit" value="Noter">'
+        // +'</form>');
+
       }
     },
     error: function(){

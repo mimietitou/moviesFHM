@@ -38,7 +38,9 @@ if (!empty($_POST['note']) && !empty($_POST['movie'])){
         // si il n'y a pas d'erreur on l'insère en BDD
         $success = true;
 
-        $sql = "INSERT INTO movies_user_note (id_movie, id_user, note, created_at) VALUES(:id_movie, :id_user, :note, NOW())";
+        $sql = "UPDATE movies_user_note
+                SET note = :note, status = 3
+                WHERE id_movie = :id_movie AND id_user = :id_user";
         $query = $pdo->prepare($sql);
         $query->bindValue(':id_movie', $id_movie, PDO::PARAM_INT);
         $query->bindValue(':id_user', $id_user, PDO::PARAM_INT);
@@ -53,7 +55,8 @@ if (!empty($_POST['note']) && !empty($_POST['movie'])){
          /////////////////////////////////////////////////////////////////////////////////
          $response = array(
            'success' => $success,
-           'error' => $error
+           'error' => $error,
+           'slug'   => $movie['slug']
          );
          /////////////////////////////////////////////////////////////////////////
          //On renvoit le tableau vers la requête ajax
